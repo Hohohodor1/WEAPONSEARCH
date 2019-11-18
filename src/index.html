@@ -2,42 +2,51 @@
 <html>
 <head>
     <meta charset='utf-8'>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
- 
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,900&amp;subset=latin-ext" rel="stylesheet">
+    <script src="path/to/chartjs/dist/Chart.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div id="MainWeapons">
-            <table class="table table-dark">
+      <div id="MainWeapons">
+        <header>
+          <div class="zbroya">Інформація про втрачену зброю</div>   
+          </header>
+          <!-- <form class="searchbar">
+              <input placeholder="Поиск" v-model="search" >
+              <input placeholder="Поиск" v-model="search2">
+              <input type="submit"  class="btn">
+              </form>
+            -->
+            <input class="form-control" type="text" placeholder="введите номер" id="search-text" onkeyup="tableSearch()">
+                    <table class="table table-striped" id="info-table">
+                     
                     <thead>
                     <tr>
-                      <th scope="col">Id</th>
-                      <th scope="col">Name</th>
-                      <th scope="col">Group</th>
-                      <th scope="col">Zdav</th>
+                      <th scope="col">ID</th>
+                      <th scope="col">BRAND</th>
+                      <th scope="col">TYPE1</th>
+                      <th scope="col">TYPE2</th>
+                      <th scope="col">W_NUMBER</th>
+                      <th scope="col">THEFT_DATA</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="product" v-for="(item, index) in students">
-                      <td>{{item._id}} </td>
-                      <td >{{item.name}} </td>
-                      <td>{{item.group}} </td>
-                      <td><input type="checkbox" v-model:clicked="item.isDonePr"> </td>
-                      <td><button v-on:click = "DlStudentById(item._id)">Видалити</button> </td>
+                        <tr class="product"  v-for="(item) in weapons" v-show="item.ID.includes(search) && item.W_NUMBER.includes(search2)"> 
+                            <tr class="product" v-for="(item) in weapons" v-bind:key="item.ID">
+                      <td>{{item.ID}} </td>
+                      <td>{{item.BRAND}} </td>
+                      <td>{{item.TYPE1}} </td>
+                      <td>{{item.TYPE2}} </td>
+                      <td >{{item.W_NUMBER}} </td>
+                      <td>{{item.THEFT_DATA}} </td>
+                    
                     </tr>
-                  </table>
-        
-        <input type="text" v-model="name" placeholder="name">
-        <input type="checkbox" id="checkbox" v-model="isDonePr">
-        <label for="checkbox">   </label>
-        <select v-model="group">
-            <option selected>RPZ1</option>
-            <option>RPZ2</option>
+                  </table>     
+                  <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
         </select> 
-        <button @click="hope()" >Dob </button>  
-
         </div>
                
 <script src="weapons.js"></script>  
