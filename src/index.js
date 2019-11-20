@@ -6,13 +6,7 @@ Vue.use(VueAxios, axios)
 var vm = new Vue({
     el: '#MainWeapons',
     data: {
-        usd: 0,
-        uah: 0,
-        grn: 0,
-        obl:'',
-        mst:'',
-        vid:'',  
-        name:'',
+        
         
         isDonePr:'', 
         group:'',

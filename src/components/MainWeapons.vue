@@ -1,6 +1,21 @@
 <template>
  <div id="MainWeapons">
-            <table class="table table-dark">
+   <header>
+			<div class="header-overlay"></div>
+			
+					<div class="zbroya">Інформація про втрачену зброю</div>
+
+   </header>
+<!-- 
+        <div class="search">
+      <form class="				searchbar">
+            <input placeholder="Поиск" v-model="search" >
+            <input placeholder="Поиск" v-model="search2">
+            <input type="submit"  class="btn">
+            </form>
+        </div> -->
+             <input class="form-control" type="text" placeholder="введите номер" id="search-text" onkeyup="tableSearch()">
+                    <table class="table table-striped" id="info-table">
                     <thead>
                     <tr>
                       <th scope="col">ID</th>
@@ -12,7 +27,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr class="product" v-for="(item) in weapons" v-bind:key="item._id">
+                        <!-- <tr class="product"  v-for="(item) in weapons" v-show="item.ID.includes(search) && item.W_NUMBER.includes(search2)" v-bind:key="item._id"> -->
+                    <tr class="product" v-for="(item) in weapons" v-bind:key="item.ID">
 
                       <td>{{item.ID}} </td>
                       <td>{{item.BRAND}} </td>
@@ -20,23 +36,12 @@
                       <td>{{item.TYPE2}} </td>
                       <td >{{item.W_NUMBER}} </td>
                       <td>{{item.THEFT_DATA}} </td>
-                   
-                      <!-- <td><button v-on:click = "DlStudentById(item._id)">Видалити</button> </td> -->
                     </tr>
                     </tbody>
                   </table>
-        
-        <!-- <input type="text" v-model="name" placeholder="name">
-        <input type="checkbox" id="checkbox" v-model="isDonePr">
-        <label for="checkbox">   </label>
-        <select v-model="group">
-            <option selected>RPZ1</option>
-            <option>RPZ2</option>
-        </select> 
-        <button @click="hope()" >Dob </button>   -->
-
-        </div>
-               
+              <canvas id="myChart" width="400" height="400"></canvas> 
+              
+ </div>     
 </template>
 <script>
 import Vue from 'vue'
@@ -46,15 +51,15 @@ import VueAxios from 'vue-axios'
 Vue.use(VueAxios, axios)
 export default({
        props: {      
-         id: '',
+         ID: '',
        },
         data: function() {
            return {  
-        vid:'',  
-        name:'',
-        
+        BRAND:'',  
+        TYPE1:'',
+        TYPE2:'',
         isDonePr:'', 
-        group:'',
+        W_NUMBER:'',
         weapons:[]
         
     }},
@@ -63,17 +68,43 @@ export default({
        
 
 },
-    mounted: function() {
-            //     Vue.axios.get("http://46.101.212.195:3000/students").then((response) =>
-            // {   
-            //     this.students = response.data;
-            //     console.log(response.data);
-                
-            // } ); 
-                    this.weapons = allweapons;
+    mounted: 
+     function tableSearch() {
+    var phrase = document.getElementById('search-text');
+    var table = document.getElementById('info-table');
+    var regPhrase = new RegExp(phrase.value, 'i');
+    var flag = false;
+    for (var i = 1; i < table.rows.length; i++) {
+        flag = false;
+        for (var j = table.rows[i].cells.length - 1; j >= 0; j--) {
+            flag = regPhrase.test(table.rows[i].cells[j].innerHTML);
+            if (flag) break;
+        }
+        if (flag) {
+            table.rows[i].style.display = "";
+        } else {
+            table.rows[i].style.display = "none";
+        }
+
+    }
+
+//                     this.weapons = allweapons;
+// var ctx = document.getElementById('myChart').getContext('2d');
+// var chart = new Chart(ctx, {
+//     // The type of chart we want to create
+//     type: 'line',
+//     data: {
+//         labels: ['TYPE1', 'TYPE2'],
+//         datasets: [{
+//             label: 'My First dataset',
+//             backgroundColor: 'rgb(255, 99, 132)',
+//             borderColor: 'rgb(255, 99, 132)',
+//             data: [2,5]
+//         }]
+//     },
+// });
             
-            
-         },
+        },
      
-});
+ });
 </script>
