@@ -15,7 +15,7 @@ export default {
       labels: wpLabels,
       datasets: [
         {
-          label: 'GitHub Commits',
+          label: 'Колібр зброї',
           backgroundColor: '#f87979',
           data: wpData
         }

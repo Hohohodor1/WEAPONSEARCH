@@ -6,15 +6,16 @@
 					<div class="zbroya">Інформація про втрачену зброю</div>
 
    </header>
-<!-- 
+
         <div class="search">
-      <form class="				searchbar">
-            <input placeholder="Поиск" v-model="search" >
-            <input placeholder="Поиск" v-model="search2">
-            <input type="submit"  class="btn">
-            </form>
-        </div> -->
+
+            <!-- <input placeholder="Поиск" v-model="search2"> -->
+           
+        </div>
              <input class="form-control" type="text" placeholder="введите номер" id="search-text" onkeyup="tableSearch()">
+                <div id="table-wrapper">
+                    <div id="table-scroll">
+                   
                     <table class="table table-striped" id="info-table">
                     <thead>
                     <tr>
@@ -25,10 +26,18 @@
                         <th scope="col">W_NUMBER</th>
                             <th scope="col">THEFT_DATA</th>
                     </tr>
+                        <tr>
+                      <th scope="col"><input placeholder="Поиск" v-model="search" ></th>
+                      <th scope="col"><input placeholder="Поиск" v-model="search2"></th>
+                      <th scope="col"></th>
+                      <th scope="col"></th>
+                        <th scope="col"></th>
+                            <th scope="col"></th>
+                    </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr class="product"  v-for="(item) in weapons" v-show="item.ID.includes(search) && item.W_NUMBER.includes(search2)" v-bind:key="item._id"> -->
-                    <tr class="product" v-for="(item) in weapons" v-bind:key="item.ID">
+                        <!-- <tr class="product"  v-for="(item) in weapons"  v-bind:key="item._id"> -->
+                    <tr class="product" v-for="(item) in weapons" v-bind:key="item.ID" v-show="item.ID.includes(search) && item.BRAND.includes(search2)">
 
                       <td>{{item.ID}} </td>
                       <td>{{item.BRAND}} </td>
@@ -39,6 +48,8 @@
                     </tr>
                     </tbody>
                   </table>
+                </div>
+                </div>
               <canvas id="myChart" width="400" height="400"></canvas> 
               
  </div>     
@@ -54,7 +65,9 @@ export default({
          ID: '',
        },
         data: function() {
-           return {  
+           return { 
+               search: '', 
+               search2: '', 
         BRAND:'',  
         TYPE1:'',
         TYPE2:'',
@@ -68,43 +81,27 @@ export default({
        
 
 },
-    mounted: 
-     function tableSearch() {
-    var phrase = document.getElementById('search-text');
-    var table = document.getElementById('info-table');
-    var regPhrase = new RegExp(phrase.value, 'i');
-    var flag = false;
-    for (var i = 1; i < table.rows.length; i++) {
-        flag = false;
-        for (var j = table.rows[i].cells.length - 1; j >= 0; j--) {
-            flag = regPhrase.test(table.rows[i].cells[j].innerHTML);
-            if (flag) break;
-        }
-        if (flag) {
-            table.rows[i].style.display = "";
-        } else {
-            table.rows[i].style.display = "none";
-        }
+    mounted() {
+    
 
-    }
+     this.weapons = allweapons;
 
-//                     this.weapons = allweapons;
-// var ctx = document.getElementById('myChart').getContext('2d');
-// var chart = new Chart(ctx, {
-//     // The type of chart we want to create
-//     type: 'line',
-//     data: {
-//         labels: ['TYPE1', 'TYPE2'],
-//         datasets: [{
-//             label: 'My First dataset',
-//             backgroundColor: 'rgb(255, 99, 132)',
-//             borderColor: 'rgb(255, 99, 132)',
-//             data: [2,5]
-//         }]
-//     },
-// });
             
-        },
+    },
      
  });
 </script>
+<style scoped>
+#table-wrapper {
+  position:relative;
+}
+#table-scroll {
+  height:450px;
+  overflow:auto;  
+  margin-top:20px;
+}
+#table-wrapper table {
+  width:100%;
+    
+}
+</style>
