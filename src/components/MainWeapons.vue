@@ -1,8 +1,6 @@
 <template>
  <div id="MainWeapons">
-   <header>
-			<div class="header-overlay"></div>
-			
+   <header>			
 					<div class="zbroya">Інформація про втрачену зброю</div>
 
    </header>
@@ -12,7 +10,7 @@
             <!-- <input placeholder="Поиск" v-model="search2"> -->
            
         </div>
-             <input class="form-control" type="text" placeholder="введите номер" id="search-text" onkeyup="tableSearch()">
+             <!-- <input class="form-control" type="text" placeholder="введите номер" id="search-text" onkeyup="tableSearch()"> -->
                 <div id="table-wrapper">
                     <div id="table-scroll">
                    
@@ -27,17 +25,17 @@
                             <th scope="col">THEFT_DATA</th>
                     </tr>
                         <tr>
-                      <th scope="col"><input placeholder="Поиск" v-model="search" ></th>
-                      <th scope="col"><input placeholder="Поиск" v-model="search2"></th>
+                      <th scope="col"><input placeholder="Поиск" v-model="SearchByID" ></th>
+                      <th scope="col"><input placeholder="Поиск" v-model="SearchByType1"></th>
                       <th scope="col"></th>
                       <th scope="col"></th>
-                        <th scope="col"></th>
+                        <th scope="col"><input placeholder="Поиск" v-model="SearchByW_NUMBER" ></th>
                             <th scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
                         <!-- <tr class="product"  v-for="(item) in weapons"  v-bind:key="item._id"> -->
-                    <tr class="product" v-for="(item) in weapons" v-bind:key="item.ID" v-show="item.ID.includes(search) && item.BRAND.includes(search2)">
+                    <tr class="product" v-for="(item) in weapons" v-bind:key="item.ID" v-show="item.ID.includes(SearchByID) && item.BRAND.includes(SearchByType1) && item.W_NUMBER.includes(SearchByW_NUMBER)">
 
                       <td>{{item.ID}} </td>
                       <td>{{item.BRAND}} </td>
@@ -66,8 +64,9 @@ export default({
        },
         data: function() {
            return { 
-               search: '', 
-               search2: '', 
+               SearchByID: '', 
+               SearchByType1: '', 
+               SearchByW_NUMBER:'',
         BRAND:'',  
         TYPE1:'',
         TYPE2:'',

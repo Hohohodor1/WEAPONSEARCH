@@ -11,12 +11,13 @@ body {
 /*---header---*/
 
 header {
+	font-style: italic;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
 	height: 70vh;
-	background-image: url(../img/background-image.png);
+	background-image: url(../src/components/flag.png);
 	-webkit-background-size: cover;
 	background-size: cover;
 	position: relative;
