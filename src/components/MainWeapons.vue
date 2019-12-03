@@ -6,17 +6,16 @@
    </header>
 
         <div class="search">
-
-            <!-- <input placeholder="Поиск" v-model="search2"> -->
-           
+          
         </div>
-             <!-- <input class="form-control" type="text" placeholder="введите номер" id="search-text" onkeyup="tableSearch()"> -->
                 <div id="table-wrapper">
                     <div id="table-scroll">
                   <nav class="top-menu">
   <ul class="menu-main">
     <li><a href="" class="current">Поиск</a></li>
-    <li><router-link to="/Chart">Графики</router-link></li>
+    <li><router-link to="/YearsChart">Графики годов</router-link></li>
+       <li><router-link to="/CALIBER">Графики калибров</router-link></li>
+          <li><router-link to="/Chart">Графики фигни</router-link></li>
     <li><a href="">Статья</a></li>
   </ul>
 </nav>
