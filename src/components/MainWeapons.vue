@@ -13,6 +13,13 @@
              <!-- <input class="form-control" type="text" placeholder="введите номер" id="search-text" onkeyup="tableSearch()"> -->
                 <div id="table-wrapper">
                     <div id="table-scroll">
+                  <nav class="top-menu">
+  <ul class="menu-main">
+    <li><a href="" class="current">Поиск</a></li>
+    <li><router-link to="/Chart">Графики</router-link></li>
+    <li><a href="">Статья</a></li>
+  </ul>
+</nav>
                    
                     <table class="table table-striped" id="info-table">
                     <thead>
@@ -49,6 +56,7 @@
                 </div>
                 </div>
               <canvas id="myChart" width="400" height="400"></canvas> 
+              <canvas id="YearsChart" width="400" height="400"></canvas>
               
  </div>     
 </template>
