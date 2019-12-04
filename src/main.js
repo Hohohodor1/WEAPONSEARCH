@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import MainWeapons from './components/MainWeapons.vue'
 import Chart from './components/Chart.vue'
-import CALIBER from './components/CALIBER.vue'
+import CALIBER from './components/CaliberChart.vue'
 import YearsChart from './components/YearsChart.vue'
 import App from './components/App.vue'
 
