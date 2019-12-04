@@ -13,10 +13,10 @@
                   <nav class="top-menu">
   <ul class="menu-main">
     <li><a href="" class="current">Поиск</a></li>
-    <li><router-link to="/YearsChart">Графики годов</router-link></li>
-       <li><router-link to="/CALIBER">Графики калибров</router-link></li>
-          <li><router-link to="/Chart">Графики фигни</router-link></li>
-    <li><a href="">Статья</a></li>
+    <li><router-link to="/YearsChart">График годов</router-link></li>
+       <!-- <li><router-link to="/CalieberChart">Графики калибров</router-link></li> -->
+          <li><router-link to="/Chart">График калибров</router-link></li>
+    <!-- <li><router-link to="/par">Статья</a></li> -->
   </ul>
 </nav>
                    

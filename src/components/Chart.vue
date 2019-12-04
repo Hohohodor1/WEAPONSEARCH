@@ -15,7 +15,7 @@ export default {
       labels: wpLabels,
       datasets: [
         {
-          label: 'Калібр зброї',
+          label: 'Калібр/тип',
           backgroundColor: '#f87979',
           data: wpData
         }
