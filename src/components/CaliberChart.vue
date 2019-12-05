@@ -1,7 +1,7 @@
 <script>
 import Vue from "vue";
 import VueCharts from "vue-chartjs";
-import { Bar, Line } from "vue-chartjs";
+import { Bar, line } from "vue-chartjs";
 
 export default {
   extends: Bar,
@@ -19,20 +19,6 @@ export default {
 
 
     for (var i = 0; i < allCalibers.length; i++) {
-      // if(allCalibers[i] == tmp)
-      // {
-      //   counter++;
-      // }countOfLostWeapon
-      // else
-      // {
-      //
-      //tmp = allCalibers[i];
-      // counter++;
-      // countOfLostWeapon[counter]++;
-      // }
-
-
-
     if(tempArray.length > 0)
       if (tempArray.includes(allCalibers[i])) 
         continue;

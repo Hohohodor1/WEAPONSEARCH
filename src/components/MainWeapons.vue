@@ -1,12 +1,12 @@
 <template>
- <div id="MainWeapons">
+ <div >
   <header>  <div class="zbroya">Інформація про втрачену зброю</div>  </header>
              <nav class="top-menu">
   <ul class="menu-main">
-    <li><a href="" class="current">Поиск</a></li>
-    <li><router-link to="/YearsChart">График годов</router-link></li>
-       <li><router-link to="/CalieberChart">Графики калибров</router-link></li>
-    <!-- <li><router-link to="">Статья</a></li> -->
+    <li><router-link to="/MainWeapons">Пошук</router-link></li>
+    <li><router-link to="/YearsChart">Графік років</router-link></li>
+       <li><router-link to="/CaliberChart">Графіки калибров</router-link></li>
+    <li><router-link to="/Info">Стаття</router-link></li>
   </ul>
 </nav>
                 <div id="table-wrapper">
@@ -15,11 +15,11 @@
                     <thead>
                     <tr>
                       <th scope="col">ID</th>
-                      <th scope="col">BRAND</th>
-                      <th scope="col">TYPE1</th>
-                      <th scope="col">TYPE2</th>
-                        <th scope="col">W_NUMBER</th>
-                            <th scope="col">THEFT_DATA</th>
+                      <th scope="col">Бренд</th>
+                      <th scope="col">Тип ствола</th>
+                      <th scope="col">Тип зброї</th>
+                        <th scope="col">Серійний номер</th>
+                            <th scope="col">Дата втрати</th>
                     </tr>
                         <tr>
                       <th scope="col"><input placeholder="Поиск" v-model="SearchByID" ></th>
@@ -45,9 +45,9 @@
                 </div>
               <canvas id="myChart" width="400" height="400"></canvas> 
               <canvas id="YearsChart" width="400" height="400"></canvas>
-                            <canvas id="CaliberChart" width="400" height="400"></canvas>  
+                            <canvas id="CaliberChart" width="200" height="200"></canvas>  
 <footer>
-  <p>На сайте предоставлены данные взятые с официального сайта <a href="www.data.gov.ua">открытых данных Украины</a></p>
+  <p>На сайті представлена Інформація з офіційних <a href="https://data.gov.ua/">відкритих даних України</a></p>
 </footer>  
  </div>     
 </template>
@@ -69,9 +69,9 @@ export default({
         BRAND:'',  
         TYPE1:'',
         TYPE2:'',
-        isDonePr:'', 
         W_NUMBER:'',
-        weapons:[]
+        weapons:[],
+        CaliberChart:''
         
     }},
 
