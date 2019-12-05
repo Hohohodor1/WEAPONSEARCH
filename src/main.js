@@ -5,7 +5,6 @@ import Chart from './components/Chart.vue'
 import CALIBER from './components/CaliberChart.vue'
 import YearsChart from './components/YearsChart.vue'
 import App from './components/App.vue'
-import par from './components/par.vue'
 
 const routes = [
    { path: '/', component: MainWeapons },

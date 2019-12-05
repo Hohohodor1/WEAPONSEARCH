@@ -7,28 +7,26 @@ export default {
   extends: Bar,
   mounted() {
     this.weapons = allweapons;
-    let allYears = this.weapons.map(function(d) {
+    let allCalibers = this.weapons.map(function(d) {
       return d.CALIBER });
-    allYears.sort();
-
-    //  var tmp = allYears[0];
+    allCalibers.sort();
     var countOfLostWeapon = new Array();
     var counter = 0;
 
-    console.table(allYears);
+    console.table(allCalibers);
 
     var tempArray = new Array();
 
 
-    for (var i = 0; i < allYears.length; i++) {
-      // if(allYears[i] == tmp)
+    for (var i = 0; i < allCalibers.length; i++) {
+      // if(allCalibers[i] == tmp)
       // {
       //   counter++;
       // }countOfLostWeapon
       // else
       // {
       //
-      //tmp = allYears[i];
+      //tmp = allCalibers[i];
       // counter++;
       // countOfLostWeapon[counter]++;
       // }
@@ -36,21 +34,18 @@ export default {
 
 
     if(tempArray.length > 0)
-      if (tempArray.includes(allYears[i])) 
+      if (tempArray.includes(allCalibers[i])) 
         continue;
 
-
-
-
-      var countWeaponsCurrentCounter = this.GetCountWeaponsByYears(i, allYears);
+      var countWeaponsCurrentCounter = this.GetCountWeaponsByCalibers(i, allCalibers);
       countOfLostWeapon.push(countWeaponsCurrentCounter);
 
-      tempArray.push(allYears[i]);
+      tempArray.push(allCalibers[i]);
     }
 
     console.table(countOfLostWeapon);
 
-    let wpLabels2 = [...new Set(allYears)];
+    let wpLabels2 = [...new Set(allCalibers)];
     this.renderChart({
       labels: wpLabels2,
       datasets: [
@@ -63,7 +58,7 @@ export default {
     });
   },
   methods: {
-    GetCountWeaponsByYears: function(index, array) {
+    GetCountWeaponsByCalibers: function(index, array) {
       var count = 0;
 
       for (var i = 0; i < array.length; i++) 

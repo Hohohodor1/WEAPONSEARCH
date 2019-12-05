@@ -1,25 +1,16 @@
 <template>
  <div id="MainWeapons">
-   <header>			
-					<div class="zbroya">Інформація про втрачену зброю</div>
-
-   </header>
-
-        <div class="search">
-          
-        </div>
-                <div id="table-wrapper">
-                    <div id="table-scroll">
-                  <nav class="top-menu">
+  <header>  <div class="zbroya">Інформація про втрачену зброю</div>  </header>
+             <nav class="top-menu">
   <ul class="menu-main">
     <li><a href="" class="current">Поиск</a></li>
     <li><router-link to="/YearsChart">График годов</router-link></li>
-       <!-- <li><router-link to="/CalieberChart">Графики калибров</router-link></li> -->
-          <li><router-link to="/Chart">График калибров</router-link></li>
-    <!-- <li><router-link to="/par">Статья</a></li> -->
+       <li><router-link to="/CalieberChart">Графики калибров</router-link></li>
+    <!-- <li><router-link to="">Статья</a></li> -->
   </ul>
 </nav>
-                   
+                <div id="table-wrapper">
+                    <div id="table-scroll"> 
                     <table class="table table-striped" id="info-table">
                     <thead>
                     <tr>
@@ -40,9 +31,7 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <!-- <tr class="product"  v-for="(item) in weapons"  v-bind:key="item._id"> -->
                     <tr class="product" v-for="(item) in weapons" v-bind:key="item.ID" v-show="item.ID.includes(SearchByID) && item.BRAND.includes(SearchByType1) && item.W_NUMBER.includes(SearchByW_NUMBER)">
-
                       <td>{{item.ID}} </td>
                       <td>{{item.BRAND}} </td>
                       <td>{{item.TYPE1}} </td>
@@ -56,7 +45,10 @@
                 </div>
               <canvas id="myChart" width="400" height="400"></canvas> 
               <canvas id="YearsChart" width="400" height="400"></canvas>
-              
+                            <canvas id="CaliberChart" width="400" height="400"></canvas>  
+<footer>
+  <p>На сайте предоставлены данные взятые с официального сайта <a href="www.data.gov.ua">открытых данных Украины</a></p>
+</footer>  
  </div>     
 </template>
 <script>
@@ -100,6 +92,7 @@ export default({
 <style scoped>
 #table-wrapper {
   position:relative;
+  height: 80px;
 }
 #table-scroll {
   height:450px;

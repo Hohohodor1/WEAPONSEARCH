@@ -6,12 +6,7 @@ Vue.use(VueAxios, axios)
 var vm = new Vue({
     el: '#MainWeapons',
     data: {
-        
-        
-        isDonePr:'', 
-        group:'',
-        students:[]
-        
+
     },
 
     methods:{
