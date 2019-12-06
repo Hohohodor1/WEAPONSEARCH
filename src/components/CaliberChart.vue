@@ -36,7 +36,7 @@ export default {
       labels: wpLabels2,
       datasets: [
         {
-          label: "Дата/кількість зброї",
+          label: "Калібр/кількість зброї",
           backgroundColor: "#f87979",
           data: countOfLostWeapon
         }

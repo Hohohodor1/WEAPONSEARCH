@@ -1,12 +1,12 @@
 <template>
- <div >
+ <div>
   <header>  <div class="zbroya">Інформація про втрачену зброю</div>  </header>
-             <nav class="top-menu">
+<nav class="top-menu">
   <ul class="menu-main">
-    <li><router-link to="/">Пошук</router-link></li>
-    <li><router-link to="/YearsChart">Графік років</router-link></li>
-       <li><router-link to="/CaliberChart">Графіки калибров</router-link></li>
-    <li><router-link to="/Info">Стаття</router-link></li>
+    <!-- <li><router-link to="/">Пошук</router-link></li> -->
+          <li><router-link to="/YearsChart">Графік років</router-link></li>
+              <li><router-link to="/CaliberChart">Графіки калибров</router-link></li>
+                 <li><router-link to="/Info">Стаття</router-link></li>
   </ul>
 </nav>
                 <div id="table-wrapper">
@@ -44,7 +44,7 @@
                 </div>
                 </div>
               <canvas id="myChart" width="400" height="400"></canvas> 
-              <canvas id="YearsChart" width="200" height="200"></canvas>
+              <canvas id="YearsChart" width="400" height="400"></canvas>
                             <canvas id="CaliberChart" width="200" height="200"></canvas>  
 <footer>
   <p>На сайті представлена Інформація з офіційних <a href="https://data.gov.ua/">відкритих даних України</a></p>
@@ -63,31 +63,20 @@ export default({
        },
         data: function() {
            return { 
-               SearchByID: '', 
-               SearchByType1: '', 
-               SearchByW_NUMBER:'',
+        SearchByID: '', 
+        SearchByType1: '', 
+        SearchByW_NUMBER:'',
         BRAND:'',  
         TYPE1:'',
         TYPE2:'',
         W_NUMBER:'',
-        weapons:[],
-        CaliberChart:''
-        
+        CaliberChart:'',
+        weapons:[]  
     }},
-
-    methods:{
-       
-
-},
+    methods:{},
     mounted() {
-    
-
-     this.weapons = allweapons;
-
-            
-    },
-     
- });
+         this.weapons = allweapons;},
+          });
 </script>
 <style scoped>
 #table-wrapper {

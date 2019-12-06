@@ -13,6 +13,13 @@ body {
 	padding: 0;
 	background-color: #3CB371;
 }
+.st1{
+text-align: left;
+}
+
+.information{
+text-align: center;
+}
 
 header {
   text-align: center;
