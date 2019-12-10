@@ -11,8 +11,6 @@ export default {
       return d.THEFT_DATA.substring(0, 4);
     });
     allYears.sort();
-
-    //  var tmp = allYears[0];
     var countOfLostWeapon = new Array();
     var counter = 0;
 
@@ -22,29 +20,12 @@ export default {
 
 
     for (var i = 0; i < allYears.length; i++) {
-      // if(allYears[i] == tmp)
-      // {
-      //   counter++;
-      // }countOfLostWeapon
-      // else
-      // {
-      //
-      //tmp = allYears[i];
-      // counter++;
-      // countOfLostWeapon[counter]++;
-      // }
-
-
 
     if(tempArray.length > 0)
       if (tempArray.includes(allYears[i])) 
         continue;
-
-
-
-
-      var countWeaponsCurrentCounter = this.GetCountWeaponsByYears(i, allYears);
-      countOfLostWeapon.push(countWeaponsCurrentCounter);
+             var countWeaponsCurrentCounter = this.GetCountWeaponsByYears(i, allYears);
+                countOfLostWeapon.push(countWeaponsCurrentCounter);
 
       tempArray.push(allYears[i]);
     }
